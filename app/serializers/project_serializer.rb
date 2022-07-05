@@ -22,15 +22,8 @@
 #
 #  fk_rails_...  (user_id => users.id)
 #
-class Project < ApplicationRecord
-  validates :goal, :deadline, :name, :description, presence:true
-
-
-  has_many :investors, dependent: :delete_all
-  has_many :team_members, dependent: :delete_all
-  belongs_to :user
-
-  def amount_invested
-    investors.sum(:ammount)
-  end
+class ProjectSerializer < ActiveModel::Serializer
+  attributes :id, :name, :statement, :deadline, :description, :fee, :goal, :images
+  attributes :amount_invested
+  has_many :team_members
 end
