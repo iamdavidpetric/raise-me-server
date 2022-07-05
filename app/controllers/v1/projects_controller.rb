@@ -8,7 +8,6 @@ module V1
 		end
 
 		def show
-
 			render json: @project
 		end
 

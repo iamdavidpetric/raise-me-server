@@ -38,11 +38,4 @@ project = Project.create!({user_id:user.id, goal:5000, fee:50, deadline:"11/11/2
         {user_id:user.id, project_id:project.id, ammount: 50},
         {user_id:user.id, project_id:project.id, ammount: 50}])
 
-# project = Project.create({user_id:user.id, goal:100, fee:5, deadline:"1/1/2023", name:"Backpack 7 in 1", statement:"hai si joaca in hora", description:"Ana are mere si alte 30kg de prune", 
-#     images:[ "https://i.imgur.com/O4vo5Uf.jpg",
-#     "https://i.imgur.com/HJcS8Xc.jpg",
-#     "https://i.imgur.com/kHgmAGw.jpg" ] })
-# investor = Investor.create({user_id:user.id, project_id:project.id, ammount: 5})
-# team_member = TeamMember.create({name:"Georgena", avatar_url:"https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80", project_id:project.id})
-
 
