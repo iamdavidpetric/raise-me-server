@@ -8,7 +8,7 @@ module V1
 		end
 
 		def show
-			
+
 			render json: @project
 		end
 
@@ -30,7 +30,7 @@ module V1
 		
 
 		def project_params
-		params.permit(:user_id, :goal, :deadline, :name, :description, :team_members, :images)
+		params.permit(:user_id, :goal, :deadline, :name, :description, :team_members, :fee, :statement, :images)
 		end
 
 		def find_project

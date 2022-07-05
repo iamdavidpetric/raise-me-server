@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     resources :investors, only: [:index, :show, :update, :create, :destroy]
     resources :projects, only: [:index, :show, :update, :create, :destroy]
     resources :users, only: [:index, :show, :update, :create, :destroy ]
+    # resources :team_members, only: [:index, :show]
 
   end
 end
