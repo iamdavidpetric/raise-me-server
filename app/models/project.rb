@@ -33,4 +33,12 @@ class Project < ApplicationRecord
   def amount_invested
     investors.sum(:ammount)
   end
+
+  def achieved_goal_percentage
+    amount_invested.to_f / goal.to_f * 100
+  end
+
+  def yesterdays_investors_number
+    investors.where(created_at: Date.yesterday.all_day).count
+  end
 end

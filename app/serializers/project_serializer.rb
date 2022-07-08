@@ -24,6 +24,7 @@
 #
 class ProjectSerializer < ActiveModel::Serializer
   attributes :id, :name, :statement, :deadline, :description, :fee, :goal, :images
-  attributes :amount_invested
+  attributes :amount_invested, :achieved_goal_percentage
+  attributes :yesterdays_investors_number
   has_many :team_members
 end
