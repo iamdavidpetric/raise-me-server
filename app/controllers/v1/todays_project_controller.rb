@@ -14,7 +14,7 @@ module V1
       project_numbers = Project.all.count
       investors_ammount = Investor.all.sum(:ammount)
       investors_all = Investor.all.count
-      render json: { projects: project_numbers, total_ammount: investors_ammount, total_investors: investors_all } 
+      render json: { total_projects_count: project_numbers, total_ammount_invested: investors_ammount, total_investors_count: investors_all } 
     end
   end
 end
