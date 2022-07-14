@@ -3,7 +3,8 @@ module V1
 		before_action :find_project, only:[:show, :update, :destroy]
 
 		def index 
-			projects = Project.all
+			category_params = params[:category]
+			projects = category_params == "" || !category_params ? Project.all : Project.by_category(category_params)
 			render json: projects
 		end
 
@@ -29,7 +30,7 @@ module V1
 		
 
 		def project_params
-		params.permit(:user_id, :goal, :deadline, :name, :description, :team_members, :fee, :statement, :images)
+		params.permit(:user_id, :goal, :deadline, :name, :category, :description, :team_members, :fee, :statement, :images)
 		end
 
 		def find_project

@@ -30,6 +30,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_04_064148) do
     t.integer "fee"
     t.date "deadline"
     t.string "name"
+    t.string "category"
     t.string "statement"
     t.string "description"
     t.text "images", default: [], array: true

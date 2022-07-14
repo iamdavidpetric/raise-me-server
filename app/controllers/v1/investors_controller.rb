@@ -22,12 +22,10 @@ module V1
 			render json: investor
 		end
 
-
 		def destroy
 			@investor.delete    
 			render json: @investor
 		end
-
 
 		def investor_params
 			params.permit(:user_id, :project_id, :ammount)

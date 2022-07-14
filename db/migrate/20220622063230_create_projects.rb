@@ -6,6 +6,7 @@ class CreateProjects < ActiveRecord::Migration[7.0]
       t.integer :fee
       t.date :deadline
       t.string :name
+      t.string :category
       t.string :statement
       t.string :description
       t.text :images, array: true, default: []

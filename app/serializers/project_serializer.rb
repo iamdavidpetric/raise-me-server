@@ -3,6 +3,7 @@
 # Table name: projects
 #
 #  id          :bigint           not null, primary key
+#  category    :string
 #  deadline    :date
 #  description :string
 #  fee         :integer
@@ -23,7 +24,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class ProjectSerializer < ActiveModel::Serializer
-  attributes :id, :name, :statement, :deadline, :description, :fee, :goal, :images
+  attributes :id, :name, :category, :statement, :deadline, :description, :fee, :goal, :images
   attributes :amount_invested, :achieved_goal_percentage
   has_many :team_members
 end
