@@ -3,6 +3,7 @@
 # Table name: projects
 #
 #  id          :bigint           not null, primary key
+#  category    :string
 #  deadline    :date
 #  description :string
 #  fee         :integer
@@ -29,6 +30,8 @@ class Project < ApplicationRecord
   has_many :investors, dependent: :delete_all
   has_many :team_members, dependent: :delete_all
   belongs_to :user
+
+  scope :by_category, -> (category) { where(category: category) }
 
   def amount_invested
     investors.sum(:ammount)

@@ -14,7 +14,7 @@ user = User.find_or_initialize_by(email:"david.petric99@gmail.com").tap do |user
     user.save
 end 
 
-project = Project.create!({user_id:user.id, goal:5000, fee:50, deadline:"11/11/2023", name:"Backpack 7 in 1", statement:"hai si joaca in hora", description:"aim is to remove the stresses of packing and organising for outdoor activities so that people can souly enjoy the positives of an active outdoor lifestyle. All the prototyping and research of the product have already been carried out, so the purpose of the funds are to finalise the design and begin manufacture as soon as possible Once the minimum target has been reached, a website will be made available to pre-order All Access backpacks until a reliable manufacturer has been sourced, after which shipping will begin right away.", 
+project = Project.create!({user_id:user.id, goal:5000, fee:50, deadline:"11/11/2023", name:"Backpack 7 in 1", category:'garden', statement:"hai si joaca in hora", description:"aim is to remove the stresses of packing and organising for outdoor activities so that people can souly enjoy the positives of an active outdoor lifestyle. All the prototyping and research of the product have already been carried out, so the purpose of the funds are to finalise the design and begin manufacture as soon as possible Once the minimum target has been reached, a website will be made available to pre-order All Access backpacks until a reliable manufacturer has been sourced, after which shipping will begin right away.", 
     images:[ "https://i.imgur.com/O4vo5Uf.jpg",
         "https://i.imgur.com/kHgmAGw.jpg",
     "https://i.imgur.com/HJcS8Xc.jpg",
