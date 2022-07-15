@@ -31,7 +31,9 @@ class Project < ApplicationRecord
   has_many :team_members, dependent: :delete_all
   belongs_to :user
 
-  scope :by_category, -> (category) { where(category: category) }
+  scope :by_category, -> (category) { category=="" ? all : where(category: category) }
+  scope :by_search, -> (search) {search=="" ? all : where('name ILIKE ? OR description ILIKE ?', "%#{search}%", "%#{search}%")}
+
 
   def amount_invested
     investors.sum(:ammount)
