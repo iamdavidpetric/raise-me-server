@@ -4,8 +4,8 @@ module V1
 
 		def index 
 			category_params = params[:category]
-			category_search = params[:search]
-			projects = Project.by_search(category_search).by_category(category_params)
+			search_params = params[:search]
+			projects = Project.by_search(search_params).by_category(category_params)
 			render json: projects
 		end
 
