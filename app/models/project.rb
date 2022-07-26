@@ -26,13 +26,14 @@
 class Project < ApplicationRecord
   validates :goal, :deadline, :name, :description, presence:true
 
-
   has_many :investors, dependent: :delete_all
   has_many :team_members, dependent: :delete_all
   belongs_to :user
 
+  accepts_nested_attributes_for :team_members
+
   scope :by_category, -> (category) { category=="" ? all : where(category: category) }
-  scope :by_search, -> (search) {search=="" ? all : where('name ILIKE ? OR description ILIKE ?', "%#{search}%", "%#{search}%")}
+  scope :by_search, -> (search) { where('name ILIKE ? OR description ILIKE ?', "%#{search}%", "%#{search}%") }
 
 
   def amount_invested

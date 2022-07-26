@@ -31,7 +31,7 @@ module V1
 		
 
 		def project_params
-		params.permit(:user_id, :goal, :deadline, :name, :category, :description, :team_members, :fee, :statement, :images)
+		params.permit(:user_id, :goal, :deadline, :name, :category, :description, :fee, :statement, images:[], team_members_attributes: %i[name avatar_url] ).to_h
 		end
 
 		def find_project
