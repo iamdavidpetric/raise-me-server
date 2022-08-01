@@ -38,5 +38,11 @@ module V1
 			@project ||= Project.find(params[:id])
 		end
 
+		def my_projects
+			userproject = User.first.projects
+			render json:userproject
+		end
+
+
 	end
 end
