@@ -11,12 +11,12 @@
 #  updated_at :datetime         not null
 #
 class User < ApplicationRecord
-    validates :first_name, :last_name, :email, :username, presence:true
-    validates :email, uniqueness: { case_sensitive: false }
+	validates :first_name, :last_name, :email, :username, presence:true
+	validates :email, uniqueness: { case_sensitive: false }
 
-    has_many :projects
+	has_many :projects
 
-    def full_name
-    "#{first_name} #{last_name}"
-    end
+	def full_name
+		"#{first_name} #{last_name}"
+	end
 end

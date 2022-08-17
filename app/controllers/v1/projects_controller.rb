@@ -31,7 +31,7 @@ module V1
 		
 
 		def project_params
-		params.permit(:user_id, :goal, :deadline, :name, :category, :description, :fee, :statement, images:[], team_members_attributes: %i[name avatar_url] ).to_h
+			params.permit(:user_id, :goal, :deadline, :name, :category, :description, :fee, :statement, images:[], team_members_attributes: %i[name avatar_url] ).to_h
 		end
 
 		def find_project
@@ -42,7 +42,5 @@ module V1
 			userproject = User.first.projects
 			render json:userproject
 		end
-
-
 	end
 end
