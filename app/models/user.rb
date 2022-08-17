@@ -34,7 +34,7 @@ class User < ApplicationRecord
         devise :database_authenticatable, :registerable,
                 :recoverable, :rememberable, 
                  :validatable,
-                :confirmable, :omniauthable
+                :confirmable
         include DeviseTokenAuth::Concerns::User
     validates :first_name, :last_name, :email, :username, presence:true
     validates :email, uniqueness: { case_sensitive: false }

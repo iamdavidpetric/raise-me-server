@@ -9,7 +9,6 @@ gem 'devise_token_auth', '>= 1.2.0', git: 'https://github.com/RaziAhmad123/devis
 gem "pg", "~> 1.1"
 gem "puma", "~> 5.0"
 gem "rails", "~> 7.0.3"
-gem 'omniauth'
 gem "rack-cors"
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 

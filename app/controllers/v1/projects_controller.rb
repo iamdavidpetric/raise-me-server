@@ -21,7 +21,7 @@ module V1
 		end
 
 		def create
-			project = Project.new(project_params)
+			project = Project.new(project_params.merge(user_id: current_user.id))
 			project.save!
 			render json: project
 		end
@@ -30,7 +30,6 @@ module V1
 			@project.destroy
 			render json: @project
 		end
-	
 
 		def project_params
 		params.permit(:user_id, :goal, :deadline, :name, :category, :description, :fee, :statement, images:[], team_members_attributes: %i[name avatar_url] ).to_h
@@ -41,8 +40,9 @@ module V1
 		end
 
 		def my_projects
-			userproject = current_user.projects
-			render json:userproject
+			user_projects = current_user.projects
+			render json:user_projects
 		end
+		
 	end
 end
