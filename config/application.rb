@@ -25,6 +25,13 @@ module RaiseMeServer
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
+    
+    config.middleware.use ActionDispatch::Session::CookieStore
+
+    # Default urls
+    api_url_root = "http://localhost:3000"
+    config.action_mailer.default_url_options = { host: api_url_root }
+    Rails.application.routes.default_url_options = { host: api_url_root }
 
     # Configuration for the application, engines, and railties goes here.
     #

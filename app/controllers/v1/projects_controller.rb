@@ -1,5 +1,7 @@
 module V1
 	class ProjectsController < ApiController
+    skip_before_action :authenticate_v1_user!, only:[:index, :show]
+
 		before_action :find_project, only:[:show, :update, :destroy]
 
 		def index 
@@ -28,7 +30,7 @@ module V1
 			@project.destroy
 			render json: @project
 		end
-		
+	
 
 		def project_params
 		params.permit(:user_id, :goal, :deadline, :name, :category, :description, :fee, :statement, images:[], team_members_attributes: %i[name avatar_url] ).to_h
@@ -39,10 +41,8 @@ module V1
 		end
 
 		def my_projects
-			userproject = User.first.projects
+			userproject = current_user.projects
 			render json:userproject
 		end
-
-
 	end
 end

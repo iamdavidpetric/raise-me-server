@@ -1,5 +1,7 @@
 module V1
 	class InvestorsController < ApiController
+		skip_before_action :authenticate_v1_user!, only:[:index, :show]
+		
 		before_action :find_investor, only:[:show, :update, :destroy]
 
 		def index
