@@ -11,6 +11,7 @@ user = User.find_or_initialize_by(email:"david.petric99@gmail.com").tap do |user
     user.last_name= "Petric"
     user.email= "david.petric01@gmail.com"
     user.username= "iamdavidpetric"
+    user.password="Salam123"
     user.save
 end 
 

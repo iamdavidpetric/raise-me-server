@@ -13,4 +13,5 @@ Devise.setup do |config|
   # middleware b/c rails-api does not include it.
   # See: https://stackoverflow.com/q/19600905/806956
   config.navigational_formats = [:json]
+  
 end
