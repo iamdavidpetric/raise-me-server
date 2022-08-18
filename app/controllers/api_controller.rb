@@ -6,5 +6,4 @@ class ApiController < UnauthenticatedApiController
     def current_user
       @current_user = current_v1_user
     end
-    
 end
