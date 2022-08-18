@@ -1,5 +1,5 @@
 module V1
-	class TodaysProjectController < ApiController
+	class TodaysProjectController < UnauthenticatedApiController
     def index
       yesterday_invested_projects = Project.all.sort_by {|project| project.yesterdays_investors_number }
       render json: yesterday_invested_projects.reverse.first(4)
