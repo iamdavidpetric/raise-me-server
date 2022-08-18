@@ -30,18 +30,15 @@
 #  index_users_on_uid_and_provider      (uid,provider) UNIQUE
 #
 class User < ApplicationRecord
-            # Include default devise modules.
-        devise :database_authenticatable, :registerable,
-                :recoverable, :rememberable, 
-                 :validatable,
-                :confirmable
-        include DeviseTokenAuth::Concerns::User
+    include DeviseTokenAuth::Concerns::User
+    # Include default devise modules.
+    devise :database_authenticatable, :registerable, :recoverable, :rememberable, :validatable, :confirmable
     validates :first_name, :last_name, :email, :username, presence:true
     validates :email, uniqueness: { case_sensitive: false }
 
-    has_many :projects
+	has_many :projects
 
-    def full_name
-    "#{first_name} #{last_name}"
-    end
+	def full_name
+		"#{first_name} #{last_name}"
+	end
 end
