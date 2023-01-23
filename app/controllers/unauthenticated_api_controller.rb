@@ -8,9 +8,9 @@ class UnauthenticatedApiController < ApplicationController
   rescue_from Api::UnprocessableError, with: :api_error
   rescue_from ActionController::ParameterMissing do |exception|
     api_error(Api::BadRequestError.new(exception.to_s.humanize))
-  end 
+  end
   rescue_from ActiveRecord::RecordNotFound do |_|
-    api_error(Api::NotFoundError.new("Resource not found."))
+    api_error(Api::NotFoundError.new('Resource not found.'))
   end
 
   def raise_unprocessable(object)

@@ -24,7 +24,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Project < ApplicationRecord
-  validates :goal, :deadline, :name, :description, presence:true
+  validates :goal, :deadline, :name, :description, presence: true
 
   belongs_to :user
   has_many :investors, dependent: :delete_all
@@ -32,9 +32,8 @@ class Project < ApplicationRecord
 
   accepts_nested_attributes_for :team_members
 
-  scope :by_category, -> (category) { category == "" ? all : where(category: category) }
-  scope :by_search, -> (search) { where('name ILIKE ? OR description ILIKE ?', "%#{search}%", "%#{search}%") }
-
+  scope :by_category, ->(category) { category == '' ? all : where(category: category) }
+  scope :by_search, ->(search) { where('name ILIKE ? OR description ILIKE ?', "%#{search}%", "%#{search}%") }
 
   def amount_invested
     investors.sum(:ammount)
