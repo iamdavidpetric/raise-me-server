@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   namespace :v1 do
     mount_devise_token_auth_for 'User', at: 'auth'
-    resources :charges, only: [:create] do
+    resources :payment, only: [:create] do
     end
     resources :projects, only: %i[index show update create destroy] do
       collection do
