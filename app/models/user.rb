@@ -21,6 +21,7 @@
 #  username               :string
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
+#  stripe_customer_id     :string
 #
 # Indexes
 #
@@ -40,5 +41,12 @@ class User < ApplicationRecord
 
   def full_name
     "#{first_name} #{last_name}"
+  end
+
+  def create_stripe_customer
+    customer = Stripe::Customer.create(email: email, name: full_name)
+    customer_id = customer.id
+    update(stripe_customer_id: customer_id)
+    customer_id
   end
 end
