@@ -14,4 +14,10 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  namespace :webhooks do
+    resources :stripe do
+      post :payments, on: :collection
+    end
+  end
 end

@@ -1,7 +1,5 @@
 module V1
   class PaymentController < ApiController
-    skip_before_action :authenticate_v1_user!
-
     def create
       payment_link = Stripe::PaymentLink.create(payment_attrs)
       render json: payment_link
@@ -18,7 +16,11 @@ module V1
     end
 
     def payment_attrs
-      { line_items: [{ price: project.stripe_price_id, quantity: 1 }] }
+      {
+        metadata: { project_id: project.id, user_id: current_user.id },
+        line_items: [{ price: project.stripe_price_id, quantity: 1 }],
+        after_completion: { type: 'redirect', redirect: { url: "http://localhost:8080/project/#{project.id}" } }
+      }
     end
   end
 end
