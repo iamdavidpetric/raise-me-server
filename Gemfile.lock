@@ -146,6 +146,8 @@ GEM
       net-protocol
       timeout
     nio4r (2.5.8)
+    nokogiri (1.13.6-arm64-darwin)
+      racc (~> 1.4)
     nokogiri (1.13.6-x86_64-darwin)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -202,6 +204,7 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    stripe (8.1.0)
     strscan (3.0.3)
     thor (1.2.1)
     timeout (0.3.0)
@@ -215,6 +218,7 @@ GEM
     zeitwerk (2.6.0)
 
 PLATFORMS
+  arm64-darwin-21
   x86_64-darwin-21
 
 DEPENDENCIES
@@ -231,6 +235,7 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-cors
   rails (~> 7.0.3)
+  stripe
   tzinfo-data
 
 RUBY VERSION

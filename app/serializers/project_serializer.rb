@@ -2,18 +2,19 @@
 #
 # Table name: projects
 #
-#  id          :bigint           not null, primary key
-#  category    :string
-#  deadline    :date
-#  description :string
-#  fee         :integer
-#  goal        :integer
-#  images      :text             default([]), is an Array
-#  name        :string
-#  statement   :string
-#  created_at  :datetime         not null
-#  updated_at  :datetime         not null
-#  user_id     :bigint           not null
+#  id              :bigint           not null, primary key
+#  category        :string
+#  deadline        :date
+#  description     :string
+#  fee             :integer
+#  goal            :integer
+#  images          :text             default([]), is an Array
+#  name            :string
+#  statement       :string
+#  created_at      :datetime         not null
+#  updated_at      :datetime         not null
+#  stripe_price_id :string
+#  user_id         :bigint           not null
 #
 # Indexes
 #

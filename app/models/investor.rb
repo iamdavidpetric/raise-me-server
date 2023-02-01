@@ -20,7 +20,7 @@
 #  fk_rails_...  (user_id => users.id)
 #
 class Investor < ApplicationRecord
-  validates :user_id, :project_id, presence:true
+  validates :user_id, :project_id, presence: true
 
   belongs_to :user, dependent: :destroy
   belongs_to :project, dependent: :destroy
